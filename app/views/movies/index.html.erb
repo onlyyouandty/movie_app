@@ -1,1 +1,15 @@
-<h1>Here is the heading</h1>
+<h1>Welcome to RetFlix! See Our collections of movies below</h1>
+
+<%= form_tag "/", method: "GET" do %>
+<%= text_field_tag :q, params[:q]%>
+<%= submit_tag "Search" %>
+<% end %>
+
+
+<% @movies.each do |m| %>
+<p>
+	<h3><%=m.title%></h3>
+	<%=m.description%>
+	<%=m.year_released%>
+</p>
+<% end %>
